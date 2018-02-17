@@ -35,7 +35,9 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="VenueName" SortExpression="VenueName">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("VenueName") %>'></asp:TextBox>
+                        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" SelectedValue='<%# Bind("VenueName") %>' DataTextField="VenueName" DataValueField="VenueName">
+                        </asp:DropDownList>
+                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:EventManagementDbConnectionString %>" SelectCommand="SELECT [VenueName] FROM [tblVenues] ORDER BY [VenueName]"></asp:SqlDataSource>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label2" runat="server" Text='<%# Bind("VenueName") %>'></asp:Label>
@@ -48,7 +50,9 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="EventType" SortExpression="EventType">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("EventType") %>'></asp:TextBox>
+                        <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="SqlDataSource3" SelectedValue='<%# Bind("EventType") %>' DataTextField="EventTypeName" DataValueField="EventTypeName">
+                            </asp:DropDownList>
+                            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:EventManagementDbConnectionString %>" SelectCommand="SELECT [EventTypeName] FROM [EventCategory]"></asp:SqlDataSource>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label3" runat="server" Text='<%# Bind("EventType") %>'></asp:Label>
