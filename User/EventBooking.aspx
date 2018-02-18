@@ -40,12 +40,12 @@
              <tr>
                 <td>Select The Event Date</td>
                 <td>
-                    <asp:TextBox ID="ddlDate" runat="server" placeholder="dd/MM/yyyy"></asp:TextBox>
+                    <asp:TextBox ID="ddlDate" runat="server" placeholder="MM/dd/yyyy" OnTextChanged="ddlDate_TextChanged"></asp:TextBox>
 
                 </td>
                 <td>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlDate" ErrorMessage="*" SetFocusOnError="true" ForeColor="Red" ToolTip="true"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="ddlDate" SetFocusOnError="true" ErrorMessage="Date should be in dd/MM/yyyy format" ForeColor="Red" ValidationExpression="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="ddlDate" SetFocusOnError="true" ErrorMessage="Date should be in MM/dd/yyyy format" ForeColor="Red" ValidationExpression="^(0?[1-9]|1[0-2])/(0?[1-9]|1[0-9]|2[0-9]|3[01])/\d{4}$"></asp:RegularExpressionValidator>
                     
                 </td>
             </tr>
@@ -97,8 +97,13 @@
             </tr>
             <tr>
                 <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
                 <td>
-                    <asp:Button ID="btnBook" runat="server" Text="Book" />
+                    <asp:Button ID="btnBook" runat="server" Text="Book" OnClick="btnBook_Click" />
                 </td>
                 <td>
                     <asp:Button ID="btnPrice" runat="server" Text="CalculatePrice" OnClick="btnPrice_Click" />
