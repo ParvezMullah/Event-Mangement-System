@@ -78,29 +78,7 @@ public partial class User_EventBooking : System.Web.UI.Page
     protected void btnBook_Click(object sender, EventArgs e)
     {
         using (SqlConnection conn = new SqlConnection(connectionString))
-        {
-            using (SqlCommand cmd = new SqlCommand("select count(EventId) from tblEventBooking where VenueName = @VenueName and EventDate = @EventDate"))
-            {
-                cmd.Connection = conn;
-                cmd.Parameters.AddWithValue("VenueName", ddlVenue.SelectedItem.ToString());
-                cmd.Parameters.AddWithValue("EventDate", ddlDate.Text.ToString());
-                conn.Open();
-                int count;
-                try
-                {
-                     count = Convert.ToInt32(cmd.ExecuteScalar());
-                }
-                finally
-                {
-                    conn.Close();
-                }
-                if(count > 0)
-                {
-                    Label1.Text = "This Venue Is Booked On The Selected Date.";
-                    Label1.Visible = true;
-                }
-                else
-                {
+        {           
                     using (SqlCommand cmd1 = new SqlCommand("select top 1 * from tblVenues where VenueName = @VenueName"))
                     {
                         cmd1.Connection = conn;
@@ -144,6 +122,7 @@ public partial class User_EventBooking : System.Web.UI.Page
                         insert.ExecuteNonQuery();
                         Label1.Text = "Event Booked Successfully!";
                         Label1.Visible = true;
+                        panel1.Visible = false;
                     }
                     catch(Exception ex)
                     {
@@ -154,12 +133,41 @@ public partial class User_EventBooking : System.Web.UI.Page
                     {
                         conn.Close();
                     }
-                }
-            }
         }
     }
     protected void ddlDate_TextChanged(object sender, EventArgs e)
     {
         Label1.Visible = false;
+    }
+    protected void btnProceed_Click(object sender, EventArgs e)
+    {
+        using (SqlConnection conn = new SqlConnection(connectionString))
+        {
+            using (SqlCommand cmd = new SqlCommand("select count(EventId) from tblEventBooking where VenueName = @VenueName and EventDate = @EventDate"))
+            {
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("VenueName", ddlVenue.SelectedItem.ToString());
+                cmd.Parameters.AddWithValue("EventDate", ddlDate.Text.ToString());
+                conn.Open();
+                int count;
+                try
+                {
+                    count = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                if (count > 0)
+                {
+                    Label1.Text = "This Venue Is Booked On The Selected Date.";
+                    Label1.Visible = true;
+                }
+                else
+                {
+                    panel1.Visible = true;
+                }
+            }
+        }
     }
 }
