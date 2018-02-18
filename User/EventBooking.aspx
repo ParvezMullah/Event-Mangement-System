@@ -160,7 +160,7 @@
                         </td>
                         <td>
                             <asp:TextBox ID="txtCsv" runat="server" ValidationGroup="g2" CssClass="form-control" placeholder="Enter the CVV number" TextMode="Password"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ValidationGroup="g2" ControlToValidate="txtCard" ErrorMessage="*" ForeColor="red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ValidationGroup="g2" ControlToValidate="txtCsv" ErrorMessage="*" ForeColor="red"></asp:RequiredFieldValidator>
                         </td>                      
                     </tr>
                     <tr>
