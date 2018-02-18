@@ -14,6 +14,10 @@ public partial class User_EventBooking : System.Web.UI.Page
     string connectionString = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["UserMobile"] == null)
+        {
+            Response.Redirect("~/default.aspx");
+        }
         if(!IsPostBack)
         {
             string query = "select distinct EventType from tblVenueType";
@@ -98,8 +102,8 @@ public partial class User_EventBooking : System.Web.UI.Page
                             Label1.Visible = true;
                         }
                     }
-                    string fullName = "Parvez Mullah";
-                    long mobile = 8080808089;
+                    string fullName = txtName.Text.ToString();
+                    long mobile = (long)(Session["UserMobile"]);
                     string eventType = ddlEvent.SelectedItem.ToString();
                     string eventDate = ddlDate.Text;
                     string venueName = ddlVenue.SelectedItem.ToString();

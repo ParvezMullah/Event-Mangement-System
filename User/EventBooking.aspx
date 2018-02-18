@@ -1,24 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EventBooking.aspx.cs" Inherits="User_EventBooking" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/UserMaster.master" CodeFile="EventBooking.aspx.cs" Inherits="User_EventBooking" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            width: 185px;
-        }
-    </style>
-</head>
-<body>
-    <form id="form1" runat="server" class="form-inline">
+<asp:content id="Content2" contentplaceholderid="MainContent" runat="Server">
     <div style="margin-left:auto;margin-right:auto;">
         <table>
             <tr>
                 <td></td>
                 <td>
-                    <asp:Label ID="Label1" runat="server" Text="Label" Visible="False" Font-Bold></asp:Label></td>
+                    <asp:Label ID="Label1" runat="server" Text="Label" Visible="False" Font-Bold="true"></asp:Label></td>
             </tr>
             <tr>
                 <td>Select The Event</td>
@@ -165,7 +153,7 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator10" ValidationGroup="g2" runat="server" ControlToValidate="txtCard" ErrorMessage="*" ForeColor="red"></asp:RequiredFieldValidator>
                         </td>
                         <td>
-                            <asp:TextBox ID="txtCsv" runat="server" ValidationGroup="g2" placeholder="Enter the CSV number" TextMode="Password"></asp:TextBox>
+                            <asp:TextBox ID="txtCsv" runat="server" ValidationGroup="g2" placeholder="Enter the CVV number" TextMode="Password"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ValidationGroup="g2" ControlToValidate="txtCard" ErrorMessage="*" ForeColor="red"></asp:RequiredFieldValidator>
                         </td>                      
                     </tr>
@@ -178,7 +166,4 @@
                 </table>
             </asp:Panel>
         </div>
-
-    </form>
-</body>
-</html>
+</asp:content>

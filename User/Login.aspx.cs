@@ -12,7 +12,10 @@ public partial class Account_Login : Page
     string connectionString = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if(Session["UserMobile"] != null)
+            {
+                Response.Redirect("UserHome.aspx");
+            }
         }
 
         protected void LogIn(object sender, EventArgs e)
@@ -30,8 +33,8 @@ public partial class Account_Login : Page
                 int result = (int)cmd2.ExecuteScalar();
                 if (result > 0)
                 {
-                    Session["Mobile"] = mobile;
-                    Response.Redirect("http://www.google.com");
+                    Session["UserMobile"] = mobile;
+                    Response.Redirect("UserHome.aspx");
                 }
                 else
                 {

@@ -8,6 +8,13 @@ using System.Configuration;
 
 public partial class Account_Register : Page
 {
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session["UserMobile"] != null)
+        {
+            Response.Redirect("UserHome.aspx");
+        }
+    }
     protected void CreateUser_Click(object sender, EventArgs e)
     {
         string connectionString = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;

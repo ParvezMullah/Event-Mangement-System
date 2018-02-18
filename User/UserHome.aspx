@@ -1,9 +1,7 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserMaster.master" AutoEventWireup="true" CodeFile="UserHome.aspx.cs" Inherits="User_UserHome" %>
 
-
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
- 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+     <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
       <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -15,19 +13,19 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img src="img/Image1.jpg" alt="Chania" width="100%"/>
+                <img src="../../img/image1.jpg" alt="Chania" width="100%"/>
             </div>
 
             <div class="item">
-                <img src="img/Image2.jpg" width="100%" alt="Chania"/>
+                <img src="../../img/image2.jpg" width="100%" alt="Chania"/>
             </div>
 
             <div class="item">
-                <img src="img/Image3.jpg" width="100%" alt="Flower"/>
+                <img src="../../img/image3.jpg" width="100%" alt="Flower"/>
             </div>
 
             <div class="item">
-                <img src="img/Image4.jpg" width="100%" alt="Flower"/>
+                <img src="../../img/image4.jpg" width="100%" alt="Flower"/>
             </div>
       </div>
 
@@ -42,3 +40,4 @@
       </a>
  </div>
 </asp:Content>
+
