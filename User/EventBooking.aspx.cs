@@ -99,6 +99,7 @@ public partial class User_EventBooking : System.Web.UI.Page
                                 totalCost += totalCost * (Convert.ToInt32(ddlQuantity.SelectedItem.ToString())) / 1000;
                             }
                             Label1.Text = "Total Cost  Will Be " + totalCost.ToString() + " Rs.";
+                            Label1.ForeColor = System.Drawing.Color.Green;
                             Label1.Visible = true;
                         }
                     }
