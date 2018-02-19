@@ -59,6 +59,7 @@
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/User/ChangePassword.aspx">Change Password</a></li>
                                 <li><a runat="server" href="~/User/LogOut.aspx">Logout</a></li>
                             </ul>
                         </AnonymousTemplate>
