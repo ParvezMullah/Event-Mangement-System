@@ -61,4 +61,5 @@ public partial class User_ChangePassword : System.Web.UI.Page
     {
         lblError.Visible = false;
     }
+
 }
