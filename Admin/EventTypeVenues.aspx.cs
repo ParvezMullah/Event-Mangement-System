@@ -9,7 +9,10 @@ public partial class Admin_EventTypeVenues : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if(Session["Admin"] == null)
+        {
+            Response.Redirect("AdminLogin.aspx");
+        }
     }
     protected void lblInsert_Click(object sender, EventArgs e)
     {

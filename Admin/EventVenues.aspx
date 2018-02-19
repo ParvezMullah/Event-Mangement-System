@@ -1,13 +1,16 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EventVenues.aspx.cs" Inherits="Admin_EventVenues" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/AdminMaster.master" CodeFile="EventVenues.aspx.cs" Inherits="Admin_EventVenues" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/0.1.0/css/footable.min.css"
+    rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/0.1.0/js/footable.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('[id*=GridView1]').footable();
+    });
+</script>
+    <center> <h1 class="bg-success">Manage Venues</h1> </center>
     <div style="margin-left:auto;margin-right:auto;">
         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="VenueId" DataSourceID="SqlDataSource1" GridLines="Vertical" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" ShowFooter="True" OnRowDataBound="GridView1_RowDataBound">
             <AlternatingRowStyle BackColor="#DCDCDC" />
@@ -18,7 +21,7 @@
                        &nbsp;<asp:LinkButton ID="LinkButton2" runat="server"  CausesValidation="False" CommandName="Cancel" Text="Cancel"></asp:LinkButton>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit"></asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton5" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit"></asp:LinkButton>
                         &nbsp;<asp:LinkButton ID="LinkButton3" runat="server"  CausesValidation="False" CommandName="Delete" Text="Delete"></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
@@ -27,7 +30,7 @@
                         <asp:Label ID="Label1" runat="server" Text='<%# Eval("VenueId") %>'></asp:Label>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("VenueId") %>'></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("VenueId") %>'></asp:Label>
                     </ItemTemplate>
                     <FooterTemplate>
                         <asp:LinkButton ID="lblInsert" OnClick="lblInsert_Click" ValidationGroup="INSERT" runat="server">Insert</asp:LinkButton>
@@ -40,7 +43,7 @@
                         </asp:RequiredFieldValidator>                        
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("VenueName") %>'></asp:Label>
+                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("VenueName") %>'></asp:Label>
                     </ItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="txtVenueName" runat="server"></asp:TextBox>
@@ -55,7 +58,7 @@
                         </asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("VenueAddress") %>'></asp:Label>
+                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("VenueAddress") %>'></asp:Label>
                     </ItemTemplate>
                      <FooterTemplate>
                         <asp:TextBox ID="txtVenueAddress" runat="server"></asp:TextBox>
@@ -70,7 +73,7 @@
                         </asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("VenueCharge") %>'></asp:Label>
+                        <asp:Label ID="Label5" runat="server" Text='<%# Bind("VenueCharge") %>'></asp:Label>
                     </ItemTemplate>
                      <FooterTemplate>
                         <asp:TextBox ID="txt" runat="server"></asp:TextBox>
@@ -80,7 +83,7 @@
                     </FooterTemplate>
                      <FooterTemplate>
                         <asp:TextBox ID="txtVenueCharge" runat="server" TextMode="Number"></asp:TextBox>
-                         <asp:RequiredFieldValidator ID="rEditVC" runat="server" ValidationGroup="INSERT" ErrorMessage="VenueName is Required" Text="*" ControlToValidate="txtVenueCharge" ForeColor="Red" SetFocusOnError="true">
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="INSERT" ErrorMessage="VenueName is Required" Text="*" ControlToValidate="txtVenueCharge" ForeColor="Red" SetFocusOnError="true">
                         </asp:RequiredFieldValidator>
                     </FooterTemplate>
                 </asp:TemplateField>
@@ -91,7 +94,7 @@
                         </asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label5" runat="server" Text='<%# Bind("RoyalFoodCharge") %>'></asp:Label>
+                        <asp:Label ID="Label6" runat="server" Text='<%# Bind("RoyalFoodCharge") %>'></asp:Label>
                     </ItemTemplate>
                      <FooterTemplate>
                         <asp:TextBox ID="txtRoyalFoodCharge" runat="server" TextMode="Number"></asp:TextBox>
@@ -106,7 +109,7 @@
                         </asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label6" runat="server" Text='<%# Bind("PremiumFoodCharge") %>'></asp:Label>
+                        <asp:Label ID="Label7" runat="server" Text='<%# Bind("PremiumFoodCharge") %>'></asp:Label>
                     </ItemTemplate>
                      <FooterTemplate>
                         <asp:TextBox ID="txtPremiumFoodCharge" runat="server" TextMode="Number"></asp:TextBox>
@@ -121,7 +124,7 @@
                         </asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label7" runat="server" Text='<%# Bind("NormalFoodCharge") %>'></asp:Label>
+                        <asp:Label ID="Label8" runat="server" Text='<%# Bind("NormalFoodCharge") %>'></asp:Label>
                     </ItemTemplate>
                      <FooterTemplate>
                         <asp:TextBox ID="txtNormalFoodCharge" runat="server" TextMode="Number"></asp:TextBox>
@@ -136,7 +139,7 @@
                         </asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label8" runat="server" Text='<%# Bind("RoyalDecorationCharge") %>'></asp:Label>
+                        <asp:Label ID="Label9" runat="server" Text='<%# Bind("RoyalDecorationCharge") %>'></asp:Label>
                     </ItemTemplate>
                      <FooterTemplate>
                         <asp:TextBox ID="txtRoyalDecorationCharge" runat="server" TextMode="Number"></asp:TextBox>
@@ -151,7 +154,7 @@
                         </asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label9" runat="server" Text='<%# Bind("PremiumDecorationCharge") %>'></asp:Label>
+                        <asp:Label ID="Label10" runat="server" Text='<%# Bind("PremiumDecorationCharge") %>'></asp:Label>
                     </ItemTemplate>
                      <FooterTemplate>
                         <asp:TextBox ID="txtPremiumDecorationCharge" runat="server" TextMode="Number"></asp:TextBox>
@@ -166,7 +169,7 @@
                         </asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label10" runat="server" Text='<%# Bind("NormalDecorationCharge") %>'></asp:Label>
+                        <asp:Label ID="Label11" runat="server" Text='<%# Bind("NormalDecorationCharge") %>'></asp:Label>
                     </ItemTemplate>
                      <FooterTemplate>
                         <asp:TextBox ID="txtNormalDecorationCharge" runat="server" TextMode="Number"></asp:TextBox>
@@ -175,15 +178,15 @@
                     </FooterTemplate>
                 </asp:TemplateField>
             </Columns>
-            <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
-            <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-            <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
-            <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-            <SortedAscendingHeaderStyle BackColor="#0000A9" />
-            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-            <SortedDescendingHeaderStyle BackColor="#000065" />
+             <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#FFF1D4" />
+            <SortedAscendingHeaderStyle BackColor="#B95C30" />
+            <SortedDescendingCellStyle BackColor="#F1E5CE" />
+            <SortedDescendingHeaderStyle BackColor="#93451F" />
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:EventManagementDbConnectionString %>" DeleteCommand="DELETE FROM [tblVenues] WHERE [VenueId] = @VenueId" InsertCommand="INSERT INTO [tblVenues] ([VenueName], [VenueAddress], [VenueCharge], [RoyalFoodCharge], [PremiumFoodCharge], [NormalFoodCharge], [RoyalDecorationCharge], [PremiumDecorationCharge], [NormalDecorationCharge]) VALUES (@VenueName, @VenueAddress, @VenueCharge, @RoyalFoodCharge, @PremiumFoodCharge, @NormalFoodCharge, @RoyalDecorationCharge, @PremiumDecorationCharge, @NormalDecorationCharge)" SelectCommand="SELECT [VenueId], [VenueName], [VenueAddress], [VenueCharge], [RoyalFoodCharge], [PremiumFoodCharge], [NormalFoodCharge], [RoyalDecorationCharge], [PremiumDecorationCharge], [NormalDecorationCharge] FROM [tblVenues] ORDER BY [VenueId]" UpdateCommand="UPDATE [tblVenues] SET [VenueName] = @VenueName, [VenueAddress] = @VenueAddress, [VenueCharge] = @VenueCharge, [RoyalFoodCharge] = @RoyalFoodCharge, [PremiumFoodCharge] = @PremiumFoodCharge, [NormalFoodCharge] = @NormalFoodCharge, [RoyalDecorationCharge] = @RoyalDecorationCharge, [PremiumDecorationCharge] = @PremiumDecorationCharge, [NormalDecorationCharge] = @NormalDecorationCharge WHERE [VenueId] = @VenueId">
             <DeleteParameters>
@@ -214,6 +217,4 @@
             </UpdateParameters>
         </asp:SqlDataSource>
     </div>
-    </form>
-</body>
-</html>
+    </asp:Content>

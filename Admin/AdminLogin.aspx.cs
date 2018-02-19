@@ -27,17 +27,18 @@ public partial class Admin_AdminLogin : System.Web.UI.Page
             string dbPassword = cmd.ExecuteScalar().ToString();
             if (dbPassword == Password)
             {
-                Response.Redirect("http://www.google.com");
+                Session["Admin"] = userName;
+                Response.Redirect("AdminHome.aspx");
             }
             else
             {
-                Label1.Visible = true;
+                FailureText.Visible = true;
             }
 
         }
         catch
         {
-            Label1.Visible = true;
+            FailureText.Visible = true;
         }
         finally
         {
@@ -46,10 +47,10 @@ public partial class Admin_AdminLogin : System.Web.UI.Page
     }
     protected void txtUserName_TextChanged(object sender, EventArgs e)
     {
-        Label1.Visible = false;
+        FailureText.Visible = false;
     }
     protected void txtPassword_TextChanged(object sender, EventArgs e)
     {
-        Label1.Visible = false;
+        FailureText.Visible = false;
     }
 }
