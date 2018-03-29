@@ -28,13 +28,14 @@
              <tr>
                 <td>Select The Venue</td>
                 <td>
-                    <asp:DropDownList ID="ddlVenue" runat="server" CssClass="form-control" ValidationGroup="g1">
+                    <asp:DropDownList ID="ddlVenue" runat="server" CssClass="form-control" ValidationGroup="g1" OnSelectedIndexChanged="ddlVenue_SelectedIndexChanged" AutoPostBack
+                        ="true">
                         <asp:ListItem Selected="True" Value="-1">--Select Venue--</asp:ListItem>
-                    </asp:DropDownList>
-
+                    </asp:DropDownList> 
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"  ValidationGroup="g1" InitialValue="-1" ErrorMessage="*" ControlToValidate="ddlVenue" ForeColor="Red" ToolTip="true"></asp:RequiredFieldValidator>
+                    <asp:Label ID="lblVenue" runat="server" Text="" ForeColor="Green" Display="Dynamic"></asp:Label>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Display="Dynamic"  ValidationGroup="g1" InitialValue="-1" ErrorMessage="*" ControlToValidate="ddlVenue" ForeColor="Red" ToolTip="true"></asp:RequiredFieldValidator>
                 </td>
             </tr>
              <tr>

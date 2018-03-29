@@ -14,6 +14,7 @@ public partial class User_EventBooking : System.Web.UI.Page
     string connectionString = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
     protected void Page_Load(object sender, EventArgs e)
     {
+        ddlDate.Attributes["min"] = DateTime.Now.ToString("yyyy-MM-dd");
         if (Session["UserMobile"] == null)
         {
             Response.Redirect("~/default.aspx");
@@ -37,6 +38,7 @@ public partial class User_EventBooking : System.Web.UI.Page
     protected void ddlEvent_SelectedIndexChanged(object sender, EventArgs e)
     {
         Label1.Visible = false;
+        lblVenue.Visible = false;
         string query = "select tblVenues.venueName,tblVenues.venueAddress from tblVenues ,tblVenueType where tblVenueType.EventType=@EventType and tblVenues.VenueName=tblVenueType.VenueName";
         using (SqlConnection conn = new SqlConnection(connectionString))
         {
@@ -174,5 +176,10 @@ public partial class User_EventBooking : System.Web.UI.Page
                 }
             }
         }
+    }
+    protected void ddlVenue_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        lblVenue.Text = "You Select venue is at " + ddlVenue.SelectedValue.ToString();
+        lblVenue.Visible = true;
     }
 }

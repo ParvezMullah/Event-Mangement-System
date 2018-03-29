@@ -17,7 +17,7 @@
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Mobile"
                     CssClass="text-danger" ErrorMessage="The Mobile field is required." /><br />
                 <asp:RegularExpressionValidator runat="server" ControlToValidate="Mobile"
-                    CssClass="text-danger" ErrorMessage="Must be 10 digit and numeric" ValidationExpression="[0-9]{10}" />
+                    CssClass="text-danger" ErrorMessage="Must be 10 digit,numeric and must start with 9,8 or 7" ValidationExpression="^[789]\d{9}$" />
             </div>
         </div>
         <div class="form-group">
